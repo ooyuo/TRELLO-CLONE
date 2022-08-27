@@ -42,7 +42,7 @@ function App() {
         <Boards>
         <Droppable droppableId="one">
           {(magic) => (
-            <Boa  rd ref={magic.innerRef} {...magic.droppableProps}>
+            <Board ref={magic.innerRef} {...magic.droppableProps}>
               {toDos.map((toDo, index) => (
                 <Draggable draggableId={toDo} index={index}>
                   {(magic) => (
@@ -57,7 +57,7 @@ function App() {
                 </Draggable>
               ))}
               {magic.placeholder}
-            </Boa>
+            </Board>
           )}
         </Droppable>
         </Boards>

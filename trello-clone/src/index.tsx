@@ -1,11 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom";
+import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "styled-components";
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
 import { darkTheme } from "./theme";
 import { createGlobalStyle } from "styled-components";
-import { RecoilRoot } from 'recoil';
-import App from './App';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -72,19 +71,14 @@ a {
 }
 `;
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+ReactDOM.render(
+  <React.StrictMode>
     <RecoilRoot>
       <ThemeProvider theme={darkTheme}>
         <GlobalStyle />
-          <App />
+        <App />
       </ThemeProvider>
     </RecoilRoot>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
